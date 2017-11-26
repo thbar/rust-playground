@@ -49,4 +49,22 @@ mod tests {
             format!("{:?}", test)
         );
     }
+    
+    #[test]
+    fn primitives() {
+        let _choice: bool = true;
+        let _integer = 100i32;
+        let _float = 1.0f64;
+        // we're shadowing the previous variable declaration here
+        let _float : f64 = 1.0;
+        
+        // mutable so can be re-assigned (but with the same type only)
+        let mut _float = 1.0; // f64
+        _float = 67.0;
+        
+        let _char = 'é';
+        let _array = [1, 2, 3, 4];
+        let _tuple = (1, 2, 3, 4);
+        let _string = "John";
+    }
 }
