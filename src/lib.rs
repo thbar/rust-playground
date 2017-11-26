@@ -104,6 +104,16 @@ mod tests {
             "Matrix(1.1, 1.2, 2.1, 2.2)",
             format!("{:?}", matrix)
         ); 
-
+    }
+    
+    fn transpose(matrix: Matrix) -> Matrix {
+        return Matrix(matrix.0, matrix.2, matrix.1, matrix.3);
+    }
+    
+    #[test]
+    fn matrix_transpose() {
+        let matrix = Matrix(1.1,1.2,2.1,2.2);
+        let transposed = transpose(matrix);
+        assert_eq!("( 1.1 2.1 )\n( 1.2 2.2 )", format!("{}", transposed));
     }
 }
