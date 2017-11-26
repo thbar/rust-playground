@@ -78,4 +78,32 @@ mod tests {
         
         let _tuple = ((10, 20),("N","W"));
     }
+    
+    // https://rustbyexample.com/primitives/tuples.html
+    #[derive(Debug)]
+    struct Matrix(f32,f32,f32,f32);
+    
+    use std::fmt;
+    
+    impl fmt::Display for Matrix {
+        fn fmt(&self, f:&mut fmt::Formatter) -> fmt::Result {
+            write!(f, "( {} {} )\n( {} {} )", self.0, self.1, self.2, self.3)
+        }
+    }
+    
+    #[test]
+    fn printing_struct() {
+        let matrix = Matrix(1.1,1.2,2.1,2.2);
+        // {} kicks the fmt::Display formatting declared above
+        assert_eq!(
+            "( 1.1 1.2 )\n( 2.1 2.2 )",
+            format!("{}", matrix)
+        ); 
+        // {:?} kicks the fmt::Debug default formatting
+        assert_eq!(
+            "Matrix(1.1, 1.2, 2.1, 2.2)",
+            format!("{:?}", matrix)
+        ); 
+
+    }
 }
