@@ -128,4 +128,6 @@ mod tests {
         assert_eq!(ys[2], 17);
         assert_eq!(ys.len(), 500);
     }
+    
+    // TODO: https://rustbyexample.com/custom_types/structs.html
 }
