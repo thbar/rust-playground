@@ -116,4 +116,16 @@ mod tests {
         let transposed = transpose(matrix);
         assert_eq!("( 1.1 2.1 )\n( 1.2 2.2 )", format!("{}", transposed));
     }
+    
+    // https://rustbyexample.com/primitives/array.html
+    #[test]
+    fn array() {
+        // Fixed-size array (type signature is superfluous)
+        let _array: [i32; 5] = [1, 2, 3, 4, 5];
+        
+        // Initialization of value
+        let ys: [i32; 500] = [17; 500];
+        assert_eq!(ys[2], 17);
+        assert_eq!(ys.len(), 500);
+    }
 }
