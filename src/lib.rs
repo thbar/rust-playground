@@ -67,4 +67,15 @@ mod tests {
         let _tuple = (1, 2, 3, 4);
         let _string = "John";
     }
+    
+    #[test]
+    fn tuple() {
+        let tuple = (1,2,"Hello", "John");
+        // Destructuring
+        let (a,_,c,_) = tuple;
+        assert_eq!(1, a);
+        assert_eq!("Hello", c);
+        
+        let _tuple = ((10, 20),("N","W"));
+    }
 }
