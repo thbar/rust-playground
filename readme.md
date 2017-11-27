@@ -1,12 +1,3 @@
-A little playground where I'm playing around with Rust.
+In this repository, I'm following [Learn rust by example](https://rustbyexample.com) and implementing what I learn as tests (koans-style). Feel free to fork for your own learning.
 
 [![Build Status](https://travis-ci.org/thbar/rust-playground.svg?branch=master)](https://travis-ci.org/thbar/rust-playground)
-
-### Resources
-
-* https://rustbyexample.com
-
-### In this repository
-
-* src: koans (up-to-date)
-* samples: outdated sample playing around with 3D
