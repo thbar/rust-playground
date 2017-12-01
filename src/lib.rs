@@ -198,4 +198,6 @@ mod tests {
             }
         };
     }
+    
+    // next https://rustbyexample.com/custom_types/enum.html
 }
