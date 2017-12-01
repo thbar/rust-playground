@@ -130,4 +130,72 @@ mod tests {
     }
     
     // TODO: https://rustbyexample.com/custom_types/structs.html
+    #[test]
+    fn check_struct() {
+        // A tuple struct
+        struct Pair(i32, i32);
+        let _pair = Pair(10, 16);
+        assert_eq!(_pair.0, 10);
+        assert_eq!(_pair.1, 16);
+        
+        // A struct with two named fields
+        #[allow(dead_code)]
+        struct Point {
+            x: f32,
+            y: f32
+        }
+        let point = Point { x: 1.0, y: 5.0 };
+        
+        #[allow(dead_code)]
+        struct Rectangle {
+            p1: Point,
+            p2: Point
+        }
+        
+        let _rect = Rectangle { 
+            p1: Point { x: 1.0, y: 5.0 },
+            p2: Point { x: 2.0, y: 9.0 }
+        };
+        
+        // destructuration
+        let Point { x: temp_x, y: temp_y } = point;
+        assert_eq!(temp_x, 1.0);
+        assert_eq!(temp_y, 5.0);
+    }
+    
+    #[test]
+    fn rect_area() {
+        struct Point { x: f32, y: f32 };
+        struct Rectangle { a: Point, b: Point };
+        
+        // nested destructuring
+        fn rect_area(rectangle: Rectangle) -> f32 {
+            let Rectangle {
+                a: Point { x: x1, y: y1 },
+                b: Point { x: x2, y: y2 }
+            } = rectangle;
+            return ((x2 - x1) * (y2 - y1)).abs();
+        }
+        
+        assert_eq!(50.0, rect_area(
+            Rectangle { 
+                a: Point { x: 5.0, y: 0.0 },
+                b: Point { x: 0.0, y: 10.0 }
+            }
+        ));
+    }
+    
+    #[test]
+    fn square() {
+        struct Point { x: f32, y: f32 };
+        struct Rectangle { a: Point, b: Point };
+
+        fn square(point: Point, size: f32) -> Rectangle {
+            return Rectangle {
+                // NOTE: cannot reuse "point" here apparently
+                a: Point { x: point.x, y: point.y },
+                b: Point { x: point.x + size, y: point.y + size  }
+            }
+        };
+    }
 }
