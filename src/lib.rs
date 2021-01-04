@@ -1,3 +1,7 @@
+// we need to refer to modules so that they get compiled
+// https://stackoverflow.com/a/27613937
+mod half_hour;
+
 #[cfg(test)]
 mod tests {
     #[test]
