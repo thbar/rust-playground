@@ -58,7 +58,7 @@ async fn echo(req_body: String) -> impl Responder {
 async fn main() -> std::io::Result<()> {
     // The || { } construct is just a zero-parameter closure. It allows to
     // defer the evaluation to later (at the appropriate time).
-    HttpServer::new(|| App::new())
+    HttpServer::new(|| App::new().service(hello).service(echo))
         .bind("127.0.0.1:8080")?
         .run()
         .await
