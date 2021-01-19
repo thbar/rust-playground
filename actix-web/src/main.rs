@@ -1,5 +1,6 @@
 // On separate lines on purpose so I can add comments later or sooner
 use actix_web::get;
+use actix_web::post;
 use actix_web::HttpResponse;
 use actix_web::Responder;
 
@@ -21,6 +22,14 @@ async fn hello() -> impl Responder {
     // It returns a HttpResponseBuilder:
     // https://docs.rs/actix-web/3.3.2/actix_web/dev/struct.HttpResponseBuilder.html
     HttpResponse::Ok().body("Hello world!")
+}
+
+// Parameters can be extracted from a request thanks to the FromRequest trait:
+// https://docs.rs/actix-web/3.3.2/actix_web/trait.FromRequest.html
+#[post("/echo")]
+async fn echo(req_body: String) -> impl Responder {
+    // Here we just echo back the content, sent by POST
+    HttpResponse::Ok().body(req_body);
 }
 
 fn main() {
