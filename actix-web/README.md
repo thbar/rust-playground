@@ -13,6 +13,8 @@ cargo run
 # hello world
 curl -i http://localhost:8080/
 
+curl -i http://localhost:8080/manual_hello
+
 # echo with POST body
 curl -X POST --data "The payload" localhost:8080/echo
 

@@ -1,6 +1,7 @@
 // On separate lines on purpose so I can add comments later or sooner
 use actix_web::get;
 use actix_web::post;
+use actix_web::web;
 use actix_web::App;
 use actix_web::HttpResponse;
 use actix_web::HttpServer;
@@ -58,8 +59,13 @@ async fn echo(req_body: String) -> impl Responder {
 async fn main() -> std::io::Result<()> {
     // The || { } construct is just a zero-parameter closure. It allows to
     // defer the evaluation to later (at the appropriate time).
-    HttpServer::new(|| App::new().service(hello).service(echo))
-        .bind("127.0.0.1:8080")?
-        .run()
-        .await
+    HttpServer::new(|| {
+        App::new()
+            .service(hello)
+            .service(echo)
+            .route("/manual_hello", web::get().to(manual_hello))
+    })
+    .bind("127.0.0.1:8080")?
+    .run()
+    .await
 }
