@@ -24,6 +24,12 @@ async fn hello() -> impl Responder {
     HttpResponse::Ok().body("Hello world!")
 }
 
+// If we don't use the attribute-like macro, there will be a bit more leg-work not here,
+// but in the route registering code (see main).
+async fn manual_hello() -> impl Responder {
+    HttpResponse::Ok().body("Hey there!")
+}
+
 // Parameters can be extracted from a request thanks to the FromRequest trait:
 // https://docs.rs/actix-web/3.3.2/actix_web/trait.FromRequest.html
 #[post("/echo")]
