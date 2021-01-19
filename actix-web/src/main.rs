@@ -29,7 +29,10 @@ async fn hello() -> impl Responder {
 #[post("/echo")]
 async fn echo(req_body: String) -> impl Responder {
     // Here we just echo back the content, sent by POST
-    HttpResponse::Ok().body(req_body);
+    //
+    // ⚠️ Make sure **not** to add a trailing ";" or you'll get an error message
+    // (the trait `Responder` is not implemented for `()`)
+    HttpResponse::Ok().body(req_body)
 }
 
 fn main() {
