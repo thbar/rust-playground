@@ -163,11 +163,11 @@ mod tests {
         struct Point {
             x: f32,
             y: f32,
-        };
+        }
         struct Rectangle {
             a: Point,
             b: Point,
-        };
+        }
 
         // nested destructuring
         fn rect_area(rectangle: Rectangle) -> f32 {
@@ -193,13 +193,13 @@ mod tests {
         struct Point {
             x: f32,
             y: f32,
-        };
+        }
 
         #[allow(dead_code)]
         struct Rectangle {
             a: Point,
             b: Point,
-        };
+        }
 
         fn _square(point: Point, size: f32) -> Rectangle {
             return Rectangle {
@@ -213,7 +213,7 @@ mod tests {
                     y: point.y + size,
                 },
             };
-        };
+        }
     }
 
     // next https://rustbyexample.com/custom_types/enum.html

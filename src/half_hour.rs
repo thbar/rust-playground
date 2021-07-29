@@ -98,7 +98,7 @@ mod half_hour {
         struct Vec2 {
             x: f64,
             y: f64,
-        };
+        }
 
         let v1 = Vec2 { x: 1.0, y: 5.0 };
         let v2 = Vec2 { x: 3.0, ..v1 };
