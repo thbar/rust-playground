@@ -10,3 +10,11 @@ Feel free to fork for your own learning.
 * Open [Rust by example](https://rustbyexample.com)
 * Run with `cargo test`
 * Run on file change with `find src | entr -c cargo test`
+
+## Running a specific binary (since we'll have more than one ultimately)
+
+See `Cargo.toml`.
+
+```
+find src | entr -c cargo run --bin gcd 15
+```
